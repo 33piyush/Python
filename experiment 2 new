@@ -1,0 +1,38 @@
+class Employee:
+    def __init__(
+            self,
+            designation: str = 'Developer',
+            frontend: bool = False,
+            backend: bool = False
+    ):
+        self.designation = designation
+        self.frontend = frontend
+        self.backend = backend
+
+    def __repr__(self):
+        return f"Employee(designation={self.designation}, frontend={self.frontend}, backend={self.backend})"
+
+    def verifier(self):
+        if self.frontend and self.backend:
+            return "Fullstack Developer"
+        elif self.frontend:
+            return "Frontend Developer"
+        elif self.backend:
+            return "Backend Developer"
+        else:
+            return "Not a developer"
+
+if __name__ == '__main__':
+  
+    firstEmployee = Employee()
+
+    print(firstEmployee.verifier()) 
+   
+    frontend_dev = Employee(frontend=True)
+    print(frontend_dev.verifier()) 
+
+    backend_dev = Employee(backend=True)
+    print(backend_dev.verifier())  
+
+    fullstack_dev = Employee(frontend=True, backend=True)
+    print(fullstack_dev.verifier()) 
